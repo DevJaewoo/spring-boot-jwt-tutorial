@@ -1,0 +1,30 @@
+spring:
+
+  h2:
+    console:
+      enabled: true #서버 시작 시 h2 DB 켜기
+
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop #Session Factory가 실행될 때 Drop, Create, Alter / 끝날 때 Drop
+    properties:
+      hibernate:
+        format_sql: true # SQL 이쁘게 보여주기
+        show_sql: true # SQL 보여주기
+    defer-datasource-initialization: true
+
+logging:
+  level:
+    com.devjaewoo: debug # 디버깅 레벨 설정
+
+jwt:
+  header: Authorization
+  secret: ZGV2amFld29vLXNwcmluZy1ib290LWp3dC10dXRvcmlhbC1kZXZqYWV3b28tc3ByaW5nLWJvb3Qtand0LXR1dG9yaWFs
+  token-validity-in-seconds: 86400
